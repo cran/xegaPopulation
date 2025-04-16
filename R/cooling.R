@@ -1,9 +1,9 @@
 #
-# (c) 2021 Andreas Geyer-Schulz
+# (c) 2024 Andreas Geyer-Schulz
 #          Simple Genetic Algorithm in R. V 0.1
 #          Layer: Gene-level functions.
 #                 Independent of gene representation.
-#          Package:  
+#          Package: xegaPopulation 
 #
 
 #' Exponential multiplicative cooling. 
@@ -269,7 +269,7 @@ if (method=="PowerAdditive") {f<- PowerAdditiveCooling}
 if (method=="ExponentialAdditive") {f<- ExponentialAdditiveCooling}
 if (method=="TrigonometricAdditive") {f<- TrigonometricAdditiveCooling}
 if (!exists("f", inherits=FALSE))
-        {stop("Acceptance label ", method, " does not exist")}
+        {stop("Cooling label ", method, " does not exist")}
 return(f)
 }
 

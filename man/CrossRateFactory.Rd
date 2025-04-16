@@ -38,6 +38,9 @@ Other Configuration:
 \code{\link{ApplyFactory}()},
 \code{\link{CoolingFactory}()},
 \code{\link{MutationRateFactory}()},
-\code{\link{xegaConfiguration}()}
+\code{\link{TerminationFactory}()},
+\code{\link{checkTerminationFactory}()},
+\code{\link{xegaConfiguration}()},
+\code{\link{xegaEvalPopulationFactory}()}
 }
 \concept{Configuration}

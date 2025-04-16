@@ -54,6 +54,7 @@ Other Population Layer:
 \code{\link{xegaInitPopulation}()},
 \code{\link{xegaLogEvalsPopulation}()},
 \code{\link{xegaNextPopulation}()},
+\code{\link{xegaRepEvalPopulation}()},
 \code{\link{xegaSummaryPopulation}()}
 }
 \concept{Population Layer}

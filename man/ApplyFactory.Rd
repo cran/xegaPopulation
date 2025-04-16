@@ -8,8 +8,10 @@ ApplyFactory(method = "Sequential")
 }
 \arguments{
 \item{method}{The label of the execution model: 
-"Sequential" | "MultiCore" | 
-"FutureApply" |  "Cluster".}
+"Sequential" | 
+"MultiCore" | "MultiCoreHet" |
+"FutureApply" |  "FutureApplyHet" |
+"Cluster" | "ClusterHet" .}
 }
 \value{
 A function with the same result as the \code{lapply()}-function.
@@ -23,8 +25,11 @@ used in the function \code{EvalPopulation()}.
 \details{
 Currently we support the following parallelization models:
 \enumerate{
-\item "Sequential": Uses \code{base::apply()}. (Default).
+\item "Sequential": Uses \code{base::lapply()}. (Default).
 \item "MultiCore": Uses \code{parallel::mclapply()}. 
+                   For tasks with approximately the same execution time.
+\item "MultiCoreHet": Uses \code{parallel::mclapply()}. 
+                   For tasks with a high variance of execution times.
 \item "FutureApply": Uses \code{future.apply::future_lapply()}
                    Plans must be set up and
                    worker processes must be stopped.
@@ -84,7 +89,7 @@ and slaves:
       \enumerate{
       \item Generate a cluster object:
 
-       \code{cl<-makeClusterPSOCK(rep("localhost", workers)} 
+       \code{cl<-makeClusterPSOCK(workers)} 
       \item Set up an on.exit condition for stopping the worker processes.
 
       \code{on.exit(parallel::stopCluster(cl))}
@@ -104,6 +109,15 @@ and slaves:
 
 The execution model \strong{"Cluster"} allows the configuration of 
 master-slave processing on local and remote machines.
+
+For evaluating tasks with highly variable execution times, 
+it is recommended to use the corresponding heterogenous 
+execution models which assign one task per computing node 
+and start a new task to a node as soon as his task is finished.  
+These execution models are "MultiCoreHet", "FutureApplyHet", and
+"ClusterHet". Note that the communication and synchronization 
+overhead of these execution models is substantially higher than 
+for the homogenous execution models.
 }
 \seealso{
 Other Configuration: 
@@ -111,6 +125,9 @@ Other Configuration:
 \code{\link{CoolingFactory}()},
 \code{\link{CrossRateFactory}()},
 \code{\link{MutationRateFactory}()},
-\code{\link{xegaConfiguration}()}
+\code{\link{TerminationFactory}()},
+\code{\link{checkTerminationFactory}()},
+\code{\link{xegaConfiguration}()},
+\code{\link{xegaEvalPopulationFactory}()}
 }
 \concept{Configuration}

@@ -20,7 +20,7 @@ Named list with the following elements:
     \itemize{
         \item \code{$name}:     The name of the problem environment.
         \item \code{$fitness}:  The fitness value of the best solution.
-        \item \code{$val}:      The evaluted best gene. 
+        \item \code{$value}:      The evaluated best gene. 
         \item \code{$numberOfSolutions}:   The number of solutions.
         \item \code{$genotype}:    The best gene.
         \item \code{$phenotype}:   The parameters of the solution
@@ -35,7 +35,7 @@ Named list with the following elements:
     }
 }
 \description{
-\code{BestInPopulation()} extracts the best
+\code{xegaBestInPopulation()} extracts the best
              individual of a population and
              reports fitness, value, genotype, and phenotype:
 
@@ -67,6 +67,7 @@ Other Population Layer:
 \code{\link{xegaLogEvalsPopulation}()},
 \code{\link{xegaNextPopulation}()},
 \code{\link{xegaObservePopulation}()},
+\code{\link{xegaRepEvalPopulation}()},
 \code{\link{xegaSummaryPopulation}()}
 }
 \concept{Population Layer}

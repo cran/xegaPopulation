@@ -2,6 +2,7 @@
 % Please edit documentation in R/xegaPopulation-package.R
 \docType{package}
 \name{xegaPopulation}
+\alias{xegaPopulation-package}
 \alias{xegaPopulation}
 \title{Package xegaPopulation.}
 \description{
@@ -154,6 +155,27 @@ lF$CBestFitness()  \tab       \tab IACRate() \cr
 }
 }
 
+\section{Interface of Termination Conditions}{
+
+
+\code{hasTerminated<-Terminate(solution, lF)}
+
+The interface allows the specification of termination conditions 
+for the genetic algorithm. The abstract function \code{Terminate}
+returns a boolean value. TBD
+
+\strong{Dependencies of Termination Conditions}
+
+\tabular{rr}{ 
+\strong{Condition}  \tab \strong{Requires} \cr 
+terminatedFalse()   \tab -                 \cr
+terminateAbsoluteError() \tab lF$penv$globalOptimum() \cr
+                         \tab lF$TerminationEps \cr
+terminateRelativeError() \tab lF$penv$globalOptimum() \cr
+                         \tab lF$TerminationEps \cr
+}
+}
+
 \section{The Architecture of the xegaX-Packages}{
 
 
@@ -219,6 +241,13 @@ the last two packages:
  From CRAN by \code{install.packages('xegaPopulation')}
 }
 
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/ageyerschulz/xegaPopulation}
+}
+
+}
 \author{
 Andreas Geyer-Schulz
 }

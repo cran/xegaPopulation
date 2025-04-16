@@ -1,6 +1,6 @@
 Package: xegaPopulation
 Title: Genetic Population Level Functions
-Version: 1.0.0.0
+Version: 1.0.0.7
 Authors@R: 
     person(given = "Andreas",
            family = "Geyer-Schulz",
@@ -24,16 +24,16 @@ Description: This collection of gene representation-independent functions
    rates depending on population statistics generalize the approach of 
    Stanhope, S. A. and Daida, J. M. (1996, ISBN:0-18-201-031-7). 
 License: MIT + file LICENSE
-URL: <https://github.com/ageyerschulz/xegaPopulation>
+URL: https://github.com/ageyerschulz/xegaPopulation
 Encoding: UTF-8
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Depends: R (>= 4.0.0), parallel, future.apply, utils, stats
 Suggests: testthat (>= 3.0.0), future, parallelly
 Imports: xegaGaGene, xegaSelectGene
 NeedsCompilation: no
-Packaged: 2024-03-01 15:06:25 UTC; dj2333
+Packaged: 2025-04-16 13:21:52 UTC; dj2333
 Author: Andreas Geyer-Schulz [aut, cre]
     (<https://orcid.org/0009-0000-5237-3579>)
 Maintainer: Andreas Geyer-Schulz <Andreas.Geyer-Schulz@kit.edu>
 Repository: CRAN
-Date/Publication: 2024-03-04 10:50:02 UTC
+Date/Publication: 2025-04-16 14:10:02 UTC

@@ -63,6 +63,9 @@ Other Configuration:
 \code{\link{ApplyFactory}()},
 \code{\link{CoolingFactory}()},
 \code{\link{CrossRateFactory}()},
-\code{\link{MutationRateFactory}()}
+\code{\link{MutationRateFactory}()},
+\code{\link{TerminationFactory}()},
+\code{\link{checkTerminationFactory}()},
+\code{\link{xegaEvalPopulationFactory}()}
 }
 \concept{Configuration}

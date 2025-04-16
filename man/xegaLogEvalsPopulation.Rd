@@ -2,7 +2,7 @@
 % Please edit documentation in R/xegaPopulation.R
 \name{xegaLogEvalsPopulation}
 \alias{xegaLogEvalsPopulation}
-\title{Combine fitness, generations, and the phentype of the gene.}
+\title{Combine fitness, generations, and the phenotype of the gene.}
 \usage{
 xegaLogEvalsPopulation(pop, evallog, generation, lF)
 }
@@ -23,11 +23,18 @@ Update of the evaluation log.
         \itemize{
         \item \code{$generation}:   The generation.
         \item \code{$fit}:          The fitness value.
+        \item \code{$sigma}:        The standard deviation of the 
+                                    fitness value, if it exists.
+                                    Default: \code{0}.
+        \item \code{$obs}:          The number of observations for 
+                                    computing the 
+                                    fitness value, if it exists.
+                                    Default: \code{0}.
         \item \code{$phenotype}:    The phenotype of the gene.
         }
 }
 \description{
-Combine fitness, generations, and the phentype of the gene.
+Combine fitness, generations, and the phenotype of the gene.
 }
 \examples{
 pop10<-xegaInitPopulation(10, lFxegaGaGene)
@@ -45,6 +52,7 @@ Other Population Layer:
 \code{\link{xegaInitPopulation}()},
 \code{\link{xegaNextPopulation}()},
 \code{\link{xegaObservePopulation}()},
+\code{\link{xegaRepEvalPopulation}()},
 \code{\link{xegaSummaryPopulation}()}
 }
 \concept{Population Layer}

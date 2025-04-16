@@ -1,0 +1,78 @@
+-------------------------------------------------------------------------
+  xegaPopulation                                                     News
+-------------------------------------------------------------------------
+
+Version 1.0.0.1 (2024-03-15)
+
+- CoolingFactory:
+        Message text corrected.
+
+Version 1.0.0.2 (2024-04-06)
+
+- ApplyFactory:
+        MClapplyHet() added. For tasks with a high variance of 
+        execution times.
+
+Version 1.0.0.3 (2024-07-10)
+
+- ApplyFactory:
+        PparLapplyHet() added. For tasks with a high variance of 
+        execution times.
+
+- ApplyFactory:
+        futureLapplyHet() added. For tasks with a high variance of 
+        execution times.
+
+Version 1.0.0.4 (2024-08-16)
+
+- xegaPopulation.R function xegaBestInPopulation: 
+        - Evaluation of bestGene omitted
+          and all fields in solution record now derived
+          from bestGene. 
+          Rationale: xegaRepEval provides aggregated statistics 
+                     with any setting of the evaluation function. 
+                     All fields derived from fit are now 
+                     mean fitnesses which should approximate 
+                     the expected fitness of a gene for 
+                     a sufficiently high number of repeated evaluations.
+
+- terminate.R contains:
+        terminatedFalse()
+        terminatedAbsoluteError()
+        terminatedRelativeError()
+        TerminationFactory()
+
+        Rationale: Provides a set of standard termination conditions
+                   to avoid their reimplementation in each problem 
+                   environment which uses them.
+
+- xegaEvalPopulation.R contains:
+        xegaEvalPopulation()
+        xegaRepEvalPopulation()
+        xegaEvalPopulationFactory()
+       
+        Rationale: Provides an evaluation function for repeated 
+                   evaluations of stochastic functions.
+         
+        xegaLogEvalsPopulation()  Reporting of sigma and obs added.
+                                  For assessing stability of mean fitness
+                                  of stochastic problems.
+
+Version 1.0.0.5 (2024-10-01)
+
+- terminatePAC()  Terminate if an epsilon-environment of an 
+                   estimated upper PAC bound of the optimal solution 
+                   is reached.
+
+Version 1.0.0.6 (2025-01-21)
+
+- Examples for futureLapplyHet, PparLapply, and PparLapplyHet fixed 
+  by Henrik Bengtsson. 
+  
+Version 1.0.0.7 (2025-01-23)
+
+- terminateGEQ()  Terminate if the (phenotype) value of a solution 
+                  is greater or equal than a threshold.
+- terminateLEQ()  Terminate if the (phenotype) value of a solution 
+                  is less or equal than a threshold.
+
