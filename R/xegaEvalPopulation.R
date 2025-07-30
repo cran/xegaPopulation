@@ -1,4 +1,48 @@
 
+#' Converts a population into a list of genetic operator pipelines.
+#'
+#' @param pop  A population.
+#' @param lF   The local function configuration.
+#'
+#' @return A list of genetic operator pipelines.
+#'
+#' @family Genetic operator pipelines
+#'
+#' @examples
+#' pop5<-xegaInitPopulation(5, lFxegaGaGene)
+#' pop5c<-asPipeline(pop5, lFxegaGaGene)
+#' pop5c
+#' @importFrom xegaGaGene newPipeline
+#' @export
+asPipeline<-function(pop, lF)
+{unlist(lF$lapply(pop, xegaGaGene::newPipeline, lF=lF))}
+
+#' Repairs the list structure of a population of genes.
+#'
+#' @description Pipelines with crossover operators with 2 kids 
+#'     generate function closures which return 2 genes (with the 
+#'     complete genetic material). The resulting population has 
+#'     elements with a single gene and elements with a list of 
+#'     two genes.    
+#'     \code{xegaRepairPop} removes this extra nesting structure 
+#'     and returns of population vector of genes of length popsize.
+#'
+#' @param pop  A population of genes.
+#'
+#' @return A population of genes.
+#'
+#' @family Genetic operator pipelines
+#'
+#' @export
+xegaRepairPop<-function(pop)
+{ npop<-list()
+for (i in (1:length(pop)))
+   { el<-pop[[i]]
+     if (length(el)==4) {npop[[i]]<-el}
+     if (length(el)==2) {npop[[i]]<-el[[1]]; npop[[i+1]]<-el[[2]]} }
+npop<-npop[1:length(pop)]
+return(npop)}
+
 #' Evaluates a population of genes in a problem environment
 #'
 #' @description \code{xegaEvalPopulation()} evaluates a population
@@ -20,17 +64,25 @@
 #' @family Population Layer
 #'
 #' @examples
-#' pop10<-xegaInitPopulation(10, lFxegaGaGene)
+#' pop5<-xegaInitPopulation(5, lFxegaGaGene)
 #' lFxegaGaGene[["lapply"]]<-ApplyFactory(method="Sequential") 
-#' result<-xegaEvalPopulation(pop10, lFxegaGaGene)
-#'
+#' result<-xegaEvalPopulation(pop5, lFxegaGaGene)
+#' result
+#' lFxegaGaGene$Pipeline<-function() {TRUE}
+#' pop5c<-asPipeline(pop5, lFxegaGaGene)
+#' pop5c
+#' result<-xegaEvalPopulation(pop5c, lFxegaGaGene)
+#' result
 #' @export
 xegaEvalPopulation<-function(pop, lF)
-{ pop<- lF$lapply(pop, lF$EvalGene, lF=lF)
+{ if (lF$Pipeline()==FALSE) {pop<- lF$lapply(pop, lF$EvalGene, lF=lF)}
+  if (lF$Pipeline()==TRUE) 
+     { pop<- lF$lapply(pop, function(x, lF) {x(lF)}, lF=lF)
+       if (Reduce((unlist(lapply(pop, FUN=function(x) length(x)))<4), f="|"))
+       {pop<-xegaRepairPop(pop)} }
   fit<- unlist(lapply(pop, function(x) {x$fit}))
   evalFail<-sum(unlist(lapply(pop, function(x) {x$evalFail})))
-  return(list(pop=pop, fit=fit, evalFail=evalFail))
-}
+  return(list(pop=pop, fit=fit, evalFail=evalFail)) }
 
 #' Evaluates a population of genes in a a problem environment repeatedly.
 #'
@@ -47,6 +99,15 @@ xegaEvalPopulation<-function(pop, lF)
 #'
 #' @details Parallelization of the evaluation of fitness functions
 #'          is possible by defining \code{lF$lapply}.
+#'
+#'          \code{xegaRepEvalPopulation} is still  experimental.
+#'          Known problems: 
+#'          \itemize{
+#'          \item The apply loop must be order stable. 
+#'                This does not work e.g. for all local area network 
+#'                distribution versions.
+#'          \item Populations of function closures can not be evaluated.  
+#'          }          
 #'
 #' @param pop    Population of genes.
 #' @param lF     Local function configuration.

@@ -28,10 +28,15 @@ Parallelization of the evaluation of fitness functions
          is possible by defining \code{lF$lapply}.
 }
 \examples{
-pop10<-xegaInitPopulation(10, lFxegaGaGene)
+pop5<-xegaInitPopulation(5, lFxegaGaGene)
 lFxegaGaGene[["lapply"]]<-ApplyFactory(method="Sequential") 
-result<-xegaEvalPopulation(pop10, lFxegaGaGene)
-
+result<-xegaEvalPopulation(pop5, lFxegaGaGene)
+result
+lFxegaGaGene$Pipeline<-function() {TRUE}
+pop5c<-asPipeline(pop5, lFxegaGaGene)
+pop5c
+result<-xegaEvalPopulation(pop5c, lFxegaGaGene)
+result
 }
 \seealso{
 Other Population Layer: 

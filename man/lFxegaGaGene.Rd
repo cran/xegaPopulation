@@ -5,9 +5,9 @@
 \alias{lFxegaGaGene}
 \title{Import for examples.}
 \format{
-An object of class \code{list} of length 29.
+An object of class \code{list} of length 32.
 
-An object of class \code{list} of length 29.
+An object of class \code{list} of length 32.
 }
 \usage{
 lFxegaGaGene
