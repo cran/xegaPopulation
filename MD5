@@ -1,11 +1,11 @@
-c4ae4917cc26db9060ea970954627399 *DESCRIPTION
+22bc8799c2c4f1c638468ce13b3e8eff *DESCRIPTION
 051a19935d426f45cd616b37716739cc *LICENSE
 f4c082757b9609a903de04d033a5c8fe *NAMESPACE
-9fdec1d2f86de31e1b08c1cb4e49d791 *NEWS
+f7ba2595f23b04616ac699b2c1ae8feb *NEWS
 5b35d2a0eddcb0c2ad695e880f6e2ce0 *R/acceptance.R
 0f129859ab2044cdd9635964f4df839b *R/adaptivityCrossover.R
 402e8cb41b6a7bb59ef914849a72f121 *R/adaptivityMutation.R
-5b2d58d6b0c2dd167bd10baa60fa819a *R/configuration.R
+f8be05b0793e77c5d70d79be6498be48 *R/configuration.R
 d1c6a4e3a97369d5795011a553378321 *R/cooling.R
 0c851cd1a9baa81fbb6e50ae5e4c6668 *R/localAdaptivity.R
 1d42f1cf2b025b5b9af2e65152ce6e8c *R/parModel.R
