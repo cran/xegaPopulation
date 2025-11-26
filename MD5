@@ -1,7 +1,7 @@
-22bc8799c2c4f1c638468ce13b3e8eff *DESCRIPTION
+77a903428e19426391ae4b44a70f6120 *DESCRIPTION
 051a19935d426f45cd616b37716739cc *LICENSE
 f4c082757b9609a903de04d033a5c8fe *NAMESPACE
-f7ba2595f23b04616ac699b2c1ae8feb *NEWS
+27d8ad0788b93ceaa02059da1bb6d80b *NEWS
 5b35d2a0eddcb0c2ad695e880f6e2ce0 *R/acceptance.R
 0f129859ab2044cdd9635964f4df839b *R/adaptivityCrossover.R
 402e8cb41b6a7bb59ef914849a72f121 *R/adaptivityMutation.R
@@ -10,11 +10,12 @@ d1c6a4e3a97369d5795011a553378321 *R/cooling.R
 0c851cd1a9baa81fbb6e50ae5e4c6668 *R/localAdaptivity.R
 1d42f1cf2b025b5b9af2e65152ce6e8c *R/parModel.R
 42999678cdb35ae1fba2331529b09953 *R/terminate.R
-e44a2ee0163e7b17250b2327f1611811 *R/xegaEvalPopulation.R
+97d32d6acc910a7dcdb57e5365595ebe *R/xegaEvalPopulation.R
 c63cf27c44b3660f1d0a29284d7179d8 *R/xegaNextPopulation.R
 b55d75742a0bba66239e28662471b8de *R/xegaPopulation-package.R
 9f123d9e80e2289df438245a911bff0e *R/xegaPopulation.R
 dc45ee2c326a842b76576ae923629d92 *README
+0867e77ee302bcd3825777ba247a3f03 *inst/CITATION
 341088cb14b182969bf65c0b235e733a *man/AcceptBest.Rd
 00fe5a39cae95350ad64fcaf4f458362 *man/AcceptFactory.Rd
 91f6644eda01a8fa547deb63aee528a6 *man/AcceptIVMetropolis.Rd
