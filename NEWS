@@ -96,3 +96,11 @@ Version 1.0.0.11 (2025-10-23)
 - asPipeline()         Changed to sequential version.
                        Reason: 1. Pipeline compilation and rmpi. 
 
+Version 1.0.0.12 (2025-12-06)
+
+- asPipelineId()       No pipeline configuration.
+
+- asPipelineG()        Embed pipeline in gene. 
+
+- xegaAsPipelineFactory()  Configuration of pipeline configuration.
+

@@ -32,8 +32,13 @@ pop5<-xegaInitPopulation(5, lFxegaGaGene)
 lFxegaGaGene[["lapply"]]<-ApplyFactory(method="Sequential") 
 result<-xegaEvalPopulation(pop5, lFxegaGaGene)
 result
-lFxegaGaGene$Pipeline<-function() {TRUE}
+lFxegaGaGene$Pipeline<-function() {"PipeC"}
 pop5c<-asPipeline(pop5, lFxegaGaGene)
+pop5c
+result<-xegaEvalPopulation(pop5c, lFxegaGaGene)
+result
+lFxegaGaGene$Pipeline<-function() {"PipeG"}
+pop5c<-asPipelineG(pop5, lFxegaGaGene)
 pop5c
 result<-xegaEvalPopulation(pop5c, lFxegaGaGene)
 result

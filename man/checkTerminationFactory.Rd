@@ -27,6 +27,7 @@ Other Configuration:
 \code{\link{CrossRateFactory}()},
 \code{\link{MutationRateFactory}()},
 \code{\link{TerminationFactory}()},
+\code{\link{xegaAsPipelineFactory}()},
 \code{\link{xegaConfiguration}()},
 \code{\link{xegaEvalPopulationFactory}()}
 }

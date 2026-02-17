@@ -63,6 +63,7 @@ Other Configuration:
 \code{\link{CrossRateFactory}()},
 \code{\link{MutationRateFactory}()},
 \code{\link{checkTerminationFactory}()},
+\code{\link{xegaAsPipelineFactory}()},
 \code{\link{xegaConfiguration}()},
 \code{\link{xegaEvalPopulationFactory}()}
 }

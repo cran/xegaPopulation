@@ -35,6 +35,7 @@ Generating the next population is sequential.
          in \code{lF}.
 }
 \examples{
+lFxegaGaGene$Pipeline<-function() {"NoPipe"}
 lFxegaGaGene$cGeneration<-function() {0}
 lFxegaGaGene$MutationRate<-MutationRateFactory(method="Const")
 lFxegaGaGene$ReplicateGene<-ReplicateGene

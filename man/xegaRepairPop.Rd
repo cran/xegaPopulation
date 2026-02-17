@@ -23,6 +23,8 @@ Pipelines with crossover operators with 2 kids
 }
 \seealso{
 Other Genetic operator pipelines: 
-\code{\link{asPipeline}()}
+\code{\link{asPipeline}()},
+\code{\link{asPipelineG}()},
+\code{\link{asPipelineID}()}
 }
 \concept{Genetic operator pipelines}
