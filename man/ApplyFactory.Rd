@@ -11,7 +11,7 @@ ApplyFactory(method = "Sequential")
 "Sequential" | 
 "MultiCore" | "MultiCoreHet" |
 "FutureApply" |  "FutureApplyHet" |
-"Cluster" | "ClusterHet" .}
+"Cluster" | "ClusterHet" | "mpi".}
 }
 \value{
 A function with the same result as the \code{lapply()}-function.
@@ -36,6 +36,10 @@ Currently we support the following parallelization models:
 \item "Cluster": Uses \code{parallel:parLapply()}.
                    A cluster object must be set up and the 
                    worker processes must be stopped. 
+\item "mpi": Uses \code{rmpiLapply()} which uses the 
+             local function \code{lF$Rmpi$mpi.parLappy()}
+             which must be bound with function \code{mpi.parLapply()} 
+             from package \code{Rmpi}.
 }
 
 The execution model \strong{"MultiCore"} provides parallelization restricted 

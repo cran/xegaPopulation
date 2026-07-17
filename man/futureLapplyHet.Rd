@@ -51,6 +51,7 @@ Other Execution Model:
 \code{\link{MClapplyHet}()},
 \code{\link{PparLapply}()},
 \code{\link{PparLapplyHet}()},
-\code{\link{futureLapply}()}
+\code{\link{futureLapply}()},
+\code{\link{rmpiLapply}()}
 }
 \concept{Execution Model}

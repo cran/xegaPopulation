@@ -12,8 +12,8 @@ xegaObservePopulation(fit, v = vector())
 \item{v}{Vector of population statistic vectors.}
 }
 \value{
-Vector of population statistics. If position
-        \code{x} modulo \code{8} equals
+Vector of population statistics. Position
+        \code{x} modulo \code{9} equals
         \enumerate{
         \item \code{1}:  Mean fitness.
         \item \code{2}:  Min fitness.
@@ -25,6 +25,7 @@ Vector of population statistics. If position
         \item \code{6}:  Max fitness.
         \item \code{7}:  Variance.
         \item \code{8}: Mean absolute deviation. 
+        \item \code{9}: Number of genes with same fitness value.
             }
 }
 \description{
@@ -39,11 +40,12 @@ Population statistics are used for
                 }
 }
 \examples{
+
 pop10<-xegaInitPopulation(10, lFxegaGaGene)
 epop10<-xegaEvalPopulation(pop10, lFxegaGaGene)
 popStats<-xegaObservePopulation(epop10$fit)
 popStats<-xegaObservePopulation(epop10$fit, popStats)
-matrix(popStats, ncol=8, byrow=TRUE)
+matrix(popStats, ncol=9, byrow=TRUE)
 
 }
 \seealso{

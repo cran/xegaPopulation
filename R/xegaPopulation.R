@@ -46,8 +46,8 @@ xegaInitPopulation<-function(popsize, lF)
 #' @param fit     Vector of fitness values of a population.
 #' @param v       Vector of population statistic vectors.
 #'
-#' @return Vector of population statistics. If position
-#'         \code{x} modulo \code{8} equals
+#' @return Vector of population statistics. Position
+#'         \code{x} modulo \code{9} equals
 #'         \enumerate{
 #'         \item \code{1}:  Mean fitness.
 #'         \item \code{2}:  Min fitness.
@@ -59,23 +59,31 @@ xegaInitPopulation<-function(popsize, lF)
 #'         \item \code{6}:  Max fitness.
 #'         \item \code{7}:  Variance.
 #'         \item \code{8}: Mean absolute deviation. 
+#'         \item \code{9}: Number of genes with same fitness value.
 #'             }
 #'
 #' @family Population Layer
 #'
 #' @examples
+#' 
 #' pop10<-xegaInitPopulation(10, lFxegaGaGene)
 #' epop10<-xegaEvalPopulation(pop10, lFxegaGaGene)
 #' popStats<-xegaObservePopulation(epop10$fit)
 #' popStats<-xegaObservePopulation(epop10$fit, popStats)
-#' matrix(popStats, ncol=8, byrow=TRUE)
+#' matrix(popStats, ncol=9, byrow=TRUE)
 #'
 #' @importFrom stats fivenum
 #' @importFrom stats mad
 #' @export
 xegaObservePopulation<-function(fit, v=vector())
 {
-return(append(v, c(mean(fit), fivenum(fit), var(fit), mad(fit, constant=1))))
+return(append(v, 
+      c(mean(fit), 
+        fivenum(fit), 
+        var(fit), 
+        mad(fit, constant=1),
+        length((1:length(fit))[max(fit)==fit])
+        )))
 }
 
 #' Combine fitness, generations, and the phenotype of the gene. 
@@ -256,6 +264,7 @@ xegaBestInPopulation<-function(pop, fit, lF, allsolutions=FALSE)
 #' @family Population Layer
 #'
 #' @examples
+#' lFxegaGaGene$pid<-function() {1}
 #' pop10<-xegaInitPopulation(10, lFxegaGaGene)
 #' epop10<-xegaEvalPopulation(pop10, lFxegaGaGene)
 #' rc<-xegaSummaryPopulation(epop10$pop, epop10$fit, lFxegaGaGene, iter=12)
@@ -273,16 +282,16 @@ xegaSummaryPopulation<-function(pop, fit, lF, iter=0)
 	if (lF$Verbose()>1) {
         if (iter==0)
         {
-        cat("Best solution:\n")
+        cat("pid[",lF$pid(),"] Best solution:\n")
         } else
         {
-        cat("Best Solution in Iteration:", iter, "\n")
+        cat("pid[",lF$pid(), "] Best Solution in Iteration:", iter, "\n")
         }
 
         best<-(1:length(fit))[max(fit)==fit]
         cat("Max(fit): ", max(fit),
             "No. solutions: ", length(best),
-            "Indices of best genes: ", best,
+            # "Indices of best genes: ", best,
             "\n")
 	}
 

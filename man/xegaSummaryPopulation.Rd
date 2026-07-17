@@ -38,6 +38,7 @@ The number \code{0}.
              }
 }
 \examples{
+lFxegaGaGene$pid<-function() {1}
 pop10<-xegaInitPopulation(10, lFxegaGaGene)
 epop10<-xegaEvalPopulation(pop10, lFxegaGaGene)
 rc<-xegaSummaryPopulation(epop10$pop, epop10$fit, lFxegaGaGene, iter=12)
